@@ -1,0 +1,17 @@
+{% extends 'photos/base.html' %}
+{% block photos_content %}
+ <table id="gallery" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Files</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for photo in photos %}
+        <tr>
+          <td><a href="{{ photo.file.url }}">{{ photo.file.name }}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
