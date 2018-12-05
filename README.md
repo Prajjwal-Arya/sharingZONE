@@ -59,6 +59,11 @@ Template: `mysite/core/home.html`
 ## Contributing
 `https://github.com/Prajjwal-Arya`
 
+## Special Thanks To
+
+Dr. Mayank Agarwal
+`https://www.iitp.ac.in/index.php/departments/engineering/computer-science-a-engineering/people/faculty/3115-dr-mayank-agarwal.html`
+
 
 
 
