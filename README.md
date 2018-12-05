@@ -25,13 +25,13 @@ python manage.py runserver
 ```
 
 
-###Usage
+### Usage
 
-###Views
+### Views
 
 Four views handle sharing, detail, and deletion. 
 
-####ProgressBarUploadView
+#### ProgressBarUploadView
 
 Validates form input to upload files. Optionally adds files to a specified folder. 
 Shows how much file has been uploaded. 
@@ -40,7 +40,7 @@ URL: `mysite/core/ProgressBarUploadView`
 
 Template: `photos/prgogress_bar_upload/index.html`
 
-####DragAndDropUploadView
+#### DragAndDropUploadView
 
 Validates form input to upload files. Files can be uploaded through this via drag and drop.
 
@@ -48,7 +48,7 @@ URL: `mysite/core/DragAndDropUploadView`
 
 Template: `photos/drag_and_drop/index.html`
 
-####HomeView
+#### HomeView
 
 Checks if the storage is below an expected amount, deletes all the files if the storage is low.
 
@@ -56,7 +56,7 @@ URL: `mysite/core/HomeView`
 
 Template: `mysite/core/home.html`
 
-##Contributing
+## Contributing
 `https://github.com/Prajjwal-Arya`
 
 
