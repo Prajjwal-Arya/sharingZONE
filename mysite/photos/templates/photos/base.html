@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form method="post" action="{% url 'photos:clear_database' %}">
+   <form method="post" action="{% url 'photos:clear_database' %}">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ request.path }}">
+    <button type="submit" class="btn btn-danger pull-right">
+      <span class="glyphicon glyphicon-trash"></span> Clear Database
+    </button>
   </form>
   <h1 class="page-header">
     FILES
@@ -12,9 +15,8 @@
   <div class="row">
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="list-group">
-          <a href="{% url 'photos:progress_bar_upload' %}" class="list-group-item{% if request.path == '/photos/progress-bar-upload/' %} active{% endif %}">
-           Upload here or drag and drop </a>
+        <div class="panel-heading">
+          <h3 class="panel-title">Upload here or drag and drop</h3>
         </div>
       </div>
     </div>
