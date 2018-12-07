@@ -2,7 +2,6 @@
 
 {% load static %}
 
-{% block title %}Progress Bar Upload{% endblock %}
 
 {% block javascript %}
   {# JQUERY FILE UPLOAD SCRIPTS #}
@@ -25,7 +24,7 @@ function myFunction() {
 {% block photos_content %}
   <div style="margin-bottom: 20px;">
     <button type="button" class="btn btn-primary js-upload-photos">
-      <span class="glyphicon glyphicon-cloud-upload"></span> Upload Files
+      <span class="glyphicon glyphicon-cloud-upload"></span> Choose file to upload or drag and drop
     </button>
     <input id="fileupload" type="file" name="file" multiple
            style="display: none;"
