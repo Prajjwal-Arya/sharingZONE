@@ -1,10 +1,12 @@
 
 {% extends 'photos/base.html' %}
+{% block title %}Library{% endblock %}
+
 {% block photos_content %}
  <table id="gallery" class="table table-bordered">
     <thead>
       <tr>
-        <th>File Names<th>Download Links</th></th>
+          <th>File Names<th>Download Links<th>Uploaded at</th></th></th>
       </tr>
     </thead>
     <tbody>
@@ -13,8 +15,9 @@
           <td>
           <a href="{{ photo.file.url }}">{{ photo.file.name }}</a></td>
 
-          <textarea class="js-copytextarea" name="hide" readonly="readonly" style="display:none;">{{'https://tonypapa777.pythonanywhere.com'}}{{photo.file.url}}</textarea>
-          <td><button class="js-textareacopybtn btn btn-primary">Copy To Clipboard</button><p></td>
+          </td><td><textarea class="js-copytextarea"  readonly="readonly" >{{'127.0.0.1:8000'}}{{photo.file.url}}</textarea>
+          <button class="js-textareacopybtn btn btn-primary">Copy To Clipboard</button><p></td>
+          <td><small>{{ photo.uploaded_at }}</small></td>
         </tr>
       {% endfor %}
     </tbody>
