@@ -1,7 +1,7 @@
 {% extends 'photos/base.html' %}
 
 {% load static %}
-
+{% block title %}Public{% endblock %}
 
 {% block javascript %}
   {# JQUERY FILE UPLOAD SCRIPTS #}
@@ -39,20 +39,26 @@ function myFunction() {
       </tr>
     </thead>
     <tbody>
-<!-- The text field -->
-{% if uploaded_file_url %}
-<input type="text" value= "{{ uploaded_file_url }}">id="myInput">
 
-<!-- The button used to copy the text -->
-<button onclick="myFunction()">Copy text</button>
- {% endif %}
 
+    <font size="4">Private : </font><input  type="checkbox" id="myCheck"  onclick="myFunctio()" >
+     <br></br>
+<script>
+function myFunctio() {
+    var checkBox = document.getElementById("myCheck");
+    var text = document.getElementById("text");
+    if (checkBox.checked == true){
+        window.location =  'http://127.0.0.1:8000/photos/progress-bar-private-upload/'
+    } else {
+        window.location =  'http://127.0.0.1:8000/photos/progress-bar-upload/'
+    }
+}
+</script>
     {% if uploaded_file_url %}
       <tr>
         <td>
             <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></td></tr>
     {% endif %}
-
     </tbody>
   </table>
 
