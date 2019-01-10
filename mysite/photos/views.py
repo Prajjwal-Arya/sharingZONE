@@ -36,6 +36,8 @@ class ProgressBarUploadView(View):
         if form.is_valid():
             photo = form.save()
             data = {'is_valid': True, 'name': photo.file.name, 'url': photo.file.url}
+            photo.title = photo.file.name
+            photo.save()
         else:
             data = {'is_valid': False}
         return JsonResponse(data)
@@ -58,15 +60,20 @@ class DragAndDropUploadView(View):
 
 
 def clear_database(request):
+    size1 = 0
     for photo in Photo.objects.all():
-        photo.file.delete()
+        photo.file.size
         photo.delete()
     return redirect(request.POST.get('next'))
 
 
 def showLibrary(request):
-    photos = Photo.objects.all()
-    return render(request, 'photos/library/index.html', {'photos': photos})
+    search_term = ''
+    photos = Photo.objects.all().order_by('-uploaded_at')
+    if 'search' in request.GET:
+        search_term = request.GET['search']
+        photos = photos.filter(title__icontains=search_term)
+    return render(request, 'photos/library/index.html', {'photos': photos, 'search_term': search_term})
 
 
 def home(request):
